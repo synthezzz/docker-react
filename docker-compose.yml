@@ -1,5 +1,8 @@
+#Docker-compose version
 version: "3"
+#Services aka Containers
 services:
+  #Frontend
   web:
     build:
       context: .
@@ -9,7 +12,8 @@ services:
     volumes:
       - /app/node_modules
       - .:/app
-  tests:
+  #Tests
+      tests:
     build:
       context: .
       dockerfile: Dockerfile.dev

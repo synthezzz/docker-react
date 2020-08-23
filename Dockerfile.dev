@@ -1,12 +1,14 @@
+#Platform
 FROM node:alpine
-
+#Working directory
 WORKDIR '/app'
-
+#Copiying package.json file for the app
 COPY package.json .
+#Starting npm
 RUN npm install
-
+#Copiying all the remaining files 
 COPY . .
-
+#Command to execute at start
 CMD ["npm", "run", "start"]
-
+#Ports and volumes 
 #docker run -p 3000:3000 -v /app/node_modules -v $(pwd):/app {container_id\name}
