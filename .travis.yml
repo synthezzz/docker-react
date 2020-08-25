@@ -1,14 +1,10 @@
 sudo: required  
-#Services required for container to run
 services:
     - docker
-#Command to run inside the container
 before install:
     - docker build -t synthezzz/docker-react -f Dockerfile.dev .    
-#Test script
 script:
     - docker run -e CI=true synthezzz/docker-react npm run test
-#deploy settings
     deploy:
     provider: elasticbeanstalk
     region: "us-west-2"
